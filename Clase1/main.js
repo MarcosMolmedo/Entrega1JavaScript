@@ -25,6 +25,7 @@ if (respuesta.toLowerCase() === "si") {
 } else {
     alert("Lo siento, no entiendo tu respuesta. Por favor, responde sí o no.");
 }
+marcos
 
 
 
