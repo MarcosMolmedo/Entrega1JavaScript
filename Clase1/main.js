@@ -2,35 +2,35 @@ let nombre = prompt("¡Bienvenido! ¿Cuál es tu nombre?");
 let respuesta = prompt("¿Vivís en Los Países Bajos?, " + nombre + ", responde si o no");
 
 if (respuesta.toLowerCase() === "si") {
-  alert("¡Genial, estás cada vez más cerca de vivir una experiencia culinaria que llevará todos tus sentidos al extremo!");
-  let ciudad = prompt("¿En qué ciudad?");
-  let cantidad = prompt("Mi ciudad favorita, ¿Para cuántas personas deseas una cotización? (10,20,30 o 40 personas)");
+    alert("¡Genial, estás cada vez más cerca de vivir una experiencia culinaria que llevará todos tus sentidos al extremo!");
+    let ciudad = prompt("¿En qué ciudad?");
+    let invitados = parseInt(prompt(ciudad + " Mi ciudad favorita, ¿Para cuántas personas deseas una cotización?"));
+    // let cantidad = prompt("Mi ciudad favorita, ¿Para cuántas personas deseas una cotización? (10,20,30 o 40 personas)");
+    let servicio = prompt("¿Qué tipo de servicio te gustaría tener? (Ej: desayuno, almuerzo, cena)").toUpperCase();
 
-  let precioBase = 50;
-  let precioTotal;
+    let vegetariano = prompt("¿Tendrás algún comensal vegetariano? (responde si o no)").toLowerCase() === "si";
 
-  switch (cantidad) {
-    case "10":
-      precioTotal = precioBase * 10;
-      alert(`Para 10 personas, el precio total es de €${precioTotal} euros.`);
-      break;
-    case "20":
-      precioTotal = precioBase * 20 * 0.9;
-      alert(`Para 20 personas, el precio total con descuento es de €${precioTotal} euros.`);
-      break;
-    case "30":
-      precioTotal = precioBase * 30 * 0.9;
-      alert(`Para 30 personas, el precio total con descuento es de €${precioTotal} euros.`);
-      break;
-    case "40":
-      precioTotal = precioBase * 40 * 0.9;
-      alert(`Para 40 personas, el precio total con descuento es de €${precioTotal} euros.`);
-      break;
-    default:
-      alert("Lo siento, no puedo cotizar lo solicitado. Por favor contáctanos por email.");
-  }
+    let precioPorPersona = vegetariano ? 45 : 50;
+    let precioTotal = invitados * precioPorPersona;
+
+    switch (servicio) {
+        case "DESAYUNO":
+            precioTotal = precioPorPersona * 15;
+            alert(`La cotización para tu evento de ${servicio} para ${invitados} personas, ${(vegetariano ? "con" : "sin")} comensales vegetarianos, es de €${precioTotal}.`);
+            break;
+        case "ALMUERZO":
+            precioTotal = precioPorPersona * 35 * 0.9;
+            alert(`La cotización para tu evento de ${servicio} para ${invitados} personas, ${(vegetariano ? "con" : "sin")} comensales vegetarianos, es de €${precioTotal}.`);
+            break;
+        case "CENA":
+            precioTotal = precioPorPersona * 45 * 0.9;
+            alert(`La cotización para tu evento de ${servicio} para ${invitados} personas, ${(vegetariano ? "con" : "sin")} comensales vegetarianos, es de €${precioTotal}.`);
+            break;
+        default:
+            alert("Lo siento, no puedo cotizar lo solicitado. Por favor contáctanos por email.");
+    }
 } else if (respuesta.toLowerCase() === "no") {
-  alert("Uups !! Estamos en Países Bajos, pero puedes recomendarnos con tus amigos.");
+    alert("Uups !! Estamos en Países Bajos, pero puedes recomendarnos con tus amigos.");
 } else {
-  alert("No entiendo tu respuesta, por favor responde si o no.");
+    alert("No entiendo tu respuesta, por favor responde si o no.");
 }
