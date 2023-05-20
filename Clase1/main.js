@@ -5,11 +5,8 @@ if (respuesta.toLowerCase() === "si") {
     alert("¡Genial, estás cada vez más cerca de vivir una experiencia culinaria que llevará todos tus sentidos al extremo!");
     let ciudad = prompt("¿En qué ciudad?");
     let invitados = parseInt(prompt(ciudad + " Mi ciudad favorita, ¿Para cuántas personas deseas una cotización?"));
-    // let cantidad = prompt("Mi ciudad favorita, ¿Para cuántas personas deseas una cotización? (10,20,30 o 40 personas)");
     let servicio = prompt("¿Qué tipo de servicio te gustaría tener? (Ej: desayuno, almuerzo, cena)").toUpperCase();
-
     let vegetariano = prompt("¿Tendrás algún comensal vegetariano? (responde si o no)").toLowerCase() === "si";
-
     let precioPorPersona = vegetariano ? 45 : 50;
     let precioTotal = invitados * precioPorPersona;
 
