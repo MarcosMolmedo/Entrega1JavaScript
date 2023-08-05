@@ -7,14 +7,16 @@ function preguntarServicio(servicio) {
   return prompt(`¿Necesitas servicios de ${servicio}? (Si/No)`).toLowerCase() === 'si';
 }
 
+let contador = 0;
 const servicios = ["traducción", "interpretación", "clases personalizadas de inglés o español"];
 const intereses = [];
 
-for (const servicio of servicios) {
-  if (preguntarServicio(servicio)) {
-    intereses.push(servicio);
-    alert(`Ofrezco servicios de ${servicio} profesional en varios idiomas.`);
+while (contador < servicios.length) {
+  if (preguntarServicio(servicios[contador])) {
+    intereses.push(servicios[contador]);
+    alert(`Ofrezco servicios de ${servicios[contador]} profesional en varios idiomas.`);
   }
+  contador++;
 }
 
 if (intereses.length === 0) {
